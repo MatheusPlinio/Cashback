@@ -40,18 +40,18 @@ class CashbackController extends Controller
         if ($request->input('_token') != '' && $request->input('id') == ''); {
             $regras =
                 [
-                    'cashback' => 'required',
+                    'name' => 'required',
                 ];
 
             $feedback =
                 [
-                    'cashback' => 'O campo deve ser preechido',
+                    'name' => 'O campo deve ser preechido',
                 ];
 
             $request->validate($regras, $feedback);
 
             $store = new Cashback();
-            $store->cashback = $request->input('cashback');
+            $store->name = $request->input('name');
             $store->logo = $request->file('logo')->store('logo', 'public');
             $store->save();
             return redirect()->route('cashback.index')->with('success', 'Cadastro realizado com sucesso');

@@ -16,7 +16,6 @@ class CashbackToAddController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -26,7 +25,6 @@ class CashbackToAddController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -35,28 +33,25 @@ class CashbackToAddController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Store $store )
+    public function store(Request $request, Store $store)
     {
         $regras =
-            [   'store_id' => 'exists:cashbacks,id',
-                'cashback_id' => 'exists:cashbacks,id',
+            [
+                'cashback' => 'exists:cashbacks,id',
                 'perc_cashback' => 'required'
             ];
 
         $feedback =
-            [   
-                'store_id' => 'Loja não existente',
-                'cashback_id' => 'o E-commerce informado não existe',
+            [
+                'cashback' => 'o E-commerce informado não existe',
                 'perc_cashback' => 'O campo :attribute deve possuir um valor válido'
             ];
 
         $request->validate($regras, $feedback);
+
         
-        $store->cashbacks()->attach(
-            [
-                $request->get('cashback_id') => ['perc_cashback' => $request->get('perc_cashback')]
-            ]
-        );
+
+        $store->cashbacks()->attach([$request->get('produto_id') => ['quantidade' => $request->get('quantidade')]]);
 
         return redirect()->route('cashback_update.update', ['store' => $store])->with('success', 'Adicionado com sucesso');
     }
@@ -69,7 +64,6 @@ class CashbackToAddController extends Controller
      */
     public function show($id)
     {
-        
     }
 
     /**
@@ -92,7 +86,6 @@ class CashbackToAddController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
     }
 
     /**

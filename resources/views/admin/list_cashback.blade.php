@@ -35,8 +35,8 @@
             <div class="right-login">
 
                 <div class="textfield">
-                    <input type="text" name="cashback" value="{{ old('cashback') }}" placeholder="cashback">
-                    {{ $errors->has('cashback') ? $errors->first('cashback') : '' }}
+                    <input type="text" name="name" value="{{ old('name') }}" placeholder="cashback">
+                    {{ $errors->has('name') ? $errors->first('name') : '' }}
                 </div>
 
                 <button type="submit" class="btn-list">pesquisar</button>
@@ -51,7 +51,7 @@
                         <tbody>
                             @foreach ($stores as $store)
                             <tr>
-                                <td>{{ $store->cashback }}</td>
+                                <td>{{ $store->name }}</td>
                                 <td>Excluir</td>
                                 <td><a href="{{ route('cashback.edit', $store->id) }}">Editar</a></td>
                             </tr>

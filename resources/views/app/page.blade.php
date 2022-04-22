@@ -31,7 +31,7 @@
             </div>
         </div>
     @if(auth()->check() && auth()->user()->Admin)
-        <li><a href="{{ route('cashback_update.update', ['store' => $store->id]) }}">Adicionar Cashback</a></li>
+        <li><a href="{{ route('cashback_update.update', ['store' => $store]) }}">Adicionar Cashback</a></li>
     @endif
 
     

@@ -34,8 +34,8 @@
             <div class="right-login">
 
                 <div class="textfield">
-                    <input type="text" name="cashback" value="{{ old('cashback') }}" placeholder="Loja">
-                    {{ $errors->has('cashback') ? $errors->first('cashback') : '' }}
+                    <input type="text" name="name" value="{{ old('name') }}" placeholder="Loja">
+                    {{ $errors->has('name') ? $errors->first('name') : '' }}
                 </div>
 
                 <div class="textfield">

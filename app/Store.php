@@ -12,6 +12,6 @@ class Store extends Model
 
     public function cashbacks()
     {
-        return $this->belongsToMany(Cashback::class, 'stores_cashbacks')->withPivot('perc_cashback');
+        return $this->belongsToMany(Cashback::class, 'stores_cashbacks', 'store_id', 'cashback_id')->withPivot('perc_cashback');
     }
 }

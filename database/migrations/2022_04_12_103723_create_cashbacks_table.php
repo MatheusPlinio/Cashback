@@ -15,7 +15,7 @@ class CreateCashbacksTable extends Migration
     {
         Schema::create('cashbacks', function (Blueprint $table) {
             $table->id();
-            $table->string('cashback', 50)->nullable();
+            $table->string('name', 50)->nullable();
             $table->timestamps();
         });
     }

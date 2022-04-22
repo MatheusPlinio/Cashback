@@ -41,9 +41,9 @@ Route::middleware('auth', 'isAdmin')->prefix('/admin')->group(function (){
     Route::post('/list_store', 'StoreListController@index')->name('list_store.index');
     Route::get('/list_cashback', 'CashbackListController@index')->name('list_cashback.index');
     Route::post('/list_cashback', 'CashbackListController@index')->name('list_cashback.index');
-    Route::post('/update/store', 'HomeController@store')->name('update.store');
+    Route::post('/update/store{store}', 'HomeController@store')->name('update.store');
     Route::get('/cashback_add/{store}', 'HomeController@edit')->name('cashback_add.edit');
-    Route::get('/cashback_update/{store}', 'HomeController@update')->name('cashback_update.update');
+    Route::get('/cashback_update{store}', 'HomeController@update')->name('cashback_update.update');
     /*Route::get('/index', 'AdminController@index')->name('admin.index');
     Route::post('/index', 'AdminController@create')->name('admin.create');
     Route::get('/list', 'AdminController@list')->name('admin.list');

@@ -14,9 +14,9 @@ class CreateStoresCashbacksTable extends Migration
     public function up()
     {
         Schema::create('stores_cashbacks', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->foreignId('store_id');
-            $table->foreignId('cashback_id');
+            $table->id();
+            $table->unsignedBigInteger('store_id');
+            $table->unsignedBigInteger('cashback_id');
             $table->decimal('perc_cashback', 5,2)->nullable();
             $table->string('link', 150)->nullable();
             $table->timestamps();

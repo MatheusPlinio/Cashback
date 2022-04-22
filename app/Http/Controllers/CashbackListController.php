@@ -9,7 +9,7 @@ class CashbackListController extends Controller
 {
     public function index(Request $request)
     {
-        $stores = Cashback::where('cashback', 'like', '%' . $request->input('cashback') . '%')->get();
+        $stores = Cashback::where('name', 'like', '%' . $request->input('name') . '%')->get();
 
         return view('admin.list_cashback', ['stores' => $stores]);
     }
