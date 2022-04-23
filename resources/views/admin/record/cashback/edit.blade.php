@@ -17,13 +17,13 @@
 <body>
     <nav class="manager">
         <ul>
-            <li><a href="{{ route ('store.index') }}">Cadastro de Lojas</a></li>
+            <li><a href="{{ route('admin.store.index') }}">Cadastro de Lojas</a></li>
 
-            <li><a href="{{ route ('cashback.index') }}">Cadastros de Cashback</a></li>
+            <li><a href="{{route ('admin.shop.index')}}">Cadastros de Cashback</a></li>
 
-            <li><a href="{{ route ('list_store.index') }}">Lojas Cadastradas</a></li>
+            <li><a href="{{ route ('admin.store.show') }}">Lojas Cadastradas</a></li>
 
-            <li><a href="{{ route ('list_cashback.index') }}">Cashbacks Cadastrados</a></li>
+            <li><a href="{{ route ('admin.shop.show') }}">Cashbacks Cadastrados</a></li>
         </ul>
     </nav>
 
@@ -37,12 +37,12 @@
         <tr>
             <td>{{ $store->name }}</td>
         </tr>
-        
+
     </tbody>
     </table>
 
 
-    @component('admin._components.form_cashback_edit', ['cashbacks' => $cashbacks, 'store' => $store])
+    @component('admin.record.cashback._components.form_cashback_edit', ['cashbacks' => $cashbacks, 'store' => $store])
     @endcomponent
 </body>
 @endsection

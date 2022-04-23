@@ -16,7 +16,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        return view('admin.record.store.index');
     }
 
     /**
@@ -26,11 +26,7 @@ class StoreController extends Controller
      */
     public function create(Store $store)
     {
-        $cashbacks = Cashback::all();
-
-        $store->cashbacks;
-
-        return view('admin.cashback_create_edit', ['store' => $store, 'cashbacks' => $cashbacks]);
+        
     }
 
     /**
@@ -75,7 +71,7 @@ class StoreController extends Controller
             } else {
                 Session::flash('success', 'Edição com dados inválidos');
             }
-            return redirect()->route('store.edit', [$request->input('id')]);
+            return redirect()->route('admin.store.edit', [$request->input('id')]);
         }
         return redirect()->route('store.index')->with('success', 'Cadastro feito com sucesso');
     }
@@ -86,9 +82,12 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        
+        {
+            $stores = Store::where('name', 'like', '%' . $request->input('name') . '%')->paginate(10);
+            return view('admin.record.store.show', ['stores' => $stores]);
+        }
     }
 
     /**
@@ -101,7 +100,7 @@ class StoreController extends Controller
     {
         $store = Store::find($id);
 
-        return view('admin.edit', ['store' => $store]);
+        return view('admin.record.store.edit', ['store' => $store]);
     }
 
     /**

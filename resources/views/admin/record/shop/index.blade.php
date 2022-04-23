@@ -2,7 +2,7 @@
 
 @section('content-index')
 <header class="header">
-    <a href=""><img src=""></a>
+    <a href="{{ route('home.index') }}"><img src=""></a>
     <nav>
         <ul class="menu">
             <li><a href="">Sobre</a></li>
@@ -15,19 +15,19 @@
 </header>
 
 <body>
-    <form action={{ route('store.store') }} method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="{{ $store->id ?? '' }}">
+    <form action={{ route('admin.shop.store') }} method="POST" enctype="multipart/form-data">
         @csrf
 
         <nav class="manager">
             <ul>
-                <li><a href="{{ route ('store.index') }}">Cadastro de Lojas</a></li>
+                <li><a href="{{ route('admin.store.index') }}">Cadastro de Lojas</a></li>
 
-                <li><a href="{{ route ('cashback.index') }}">Cadastros de Cashback</a></li>
+                <li><a href="{{route ('admin.shop.index')}}">Cadastros de Cashback</a></li>
 
-                <li><a href="{{ route ('list_store.index') }}">Lojas Cadastradas</a></li>
+                <li><a href="{{ route ('admin.store.show') }}">Lojas Cadastradas</a></li>
 
-                <li><a href="{{ route ('list_cashback.index') }}">Cashbacks Cadastrados</a></li>            </ul>
+                <li><a href="{{ route ('admin.shop.show') }}">Cashbacks Cadastrados</a></li>
+            </ul>
         </nav>
 
         <div class="main-login">
@@ -35,13 +35,13 @@
             <div class="right-login">
 
                 <div class="textfield">
-                    <input type="text" name="name" value="{{ $store->name ?? old('name') }}" placeholder="Loja">
+                    <input type="text" name="name" value="{{ old('name') }}" placeholder="Loja">
                     {{ $errors->has('name') ? $errors->first('name') : '' }}
                 </div>
 
                 <div class="textfield">
-                    <input type="text" name="link" value="{{ $store->link ?? old('link') }}" placeholder="Link">
-                    {{ $errors->has('link') ? $errors->first('link') : '' }}
+                    <input type="file" name="logo" value="{{ old('logo') }}" placeholder="logo">
+                    {{ $errors->has('logo') ? $errors->first('logo') : '' }}
                 </div>
 
                 <button type="submit" class="btn-login">Cadastrar</button>

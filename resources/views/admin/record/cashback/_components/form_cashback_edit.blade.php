@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('update.store', ['store' => $store]) }}">
+<form method="post" action="{{ route('admin.cashback.store', ['store' => $store]) }}">
 @csrf
     
     <select name="cashback">

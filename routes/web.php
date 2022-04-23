@@ -20,40 +20,50 @@ use App\Store;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
-Route::get('/page/{id}', 'HomeController@page')->name('app.page');
+Route::get('/page/{id}', 'PageController@index')->name('app.page.page');
     
 
 Route::middleware('auth')->prefix('/app')->group(function () {
-    Route::get('/contato', 'HomeController@contato')->name('app.contato');
-    Route::get('/sobre', 'HomeController@sobre')->name('app.sobre');
+    Route::get('/contato', 'ContactController@index')->name('app.contact.index');
+    Route::get('/sobre', 'OnController@index')->name('app.on.index');
 });
 
-
-
-
-//Rotas do admin
+                                //Routes of admin//
 
 Route::middleware('auth', 'isAdmin')->prefix('/admin')->group(function (){
-    Route::resource('store', 'StoreController');
-    Route::resource('cashback', 'CashbackController');
-    Route::resource('cashback_to_add', 'CashbackToAddController');
-    Route::get('/list_store', 'StoreListController@index')->name('list_store.index');
-    Route::post('/list_store', 'StoreListController@index')->name('list_store.index');
-    Route::get('/list_cashback', 'CashbackListController@index')->name('list_cashback.index');
-    Route::post('/list_cashback', 'CashbackListController@index')->name('list_cashback.index');
-    Route::post('/update/store{store}', 'HomeController@store')->name('update.store');
-    Route::get('/cashback_add/{store}', 'HomeController@edit')->name('cashback_add.edit');
-    Route::get('/cashback_update{store}', 'HomeController@update')->name('cashback_update.update');
-    /*Route::get('/index', 'AdminController@index')->name('admin.index');
-    Route::post('/index', 'AdminController@create')->name('admin.create');
-    Route::get('/list', 'AdminController@list')->name('admin.list');
-    Route::post('/list', 'AdminController@list')->name('admin.list');
-    Route::get('/cashback', 'AdminController@cashback')->name('admin.cashback');
-    Route::post('/cashback', 'AdminController@cashback_to_add')->name('admin.cashback_to_add');
-    Route::get('/list/edit/{id}', 'AdminController@edit')->name('admin.edit');
-    Route::get('/cashback/edit/{id}', 'AdminController@Cashback_edit')->name('admin.Cashback_edit');
-    Route::get('/list/cashback', 'AdminController@list_Cashback')->name('admin.list_cashback');
-    Route::post('/list/cashback', 'AdminController@list_Cashback')->name('admin.list_cashback');
-    Route::post('/cashback/add/{id}', 'CashbackController@cashback_add')->name('admin.cashback_add');
-    Route::get('/cashback/add/{id}', 'CashbackController@index')->name('admin.cashback_add');*/
+    
+                            ///*Store admin routes*///
+
+    Route::get('/store/index', 'Admin\StoreController@index')->name('admin.store.index');
+
+    Route::get('/store/edit/{id}', 'StoreController@edit')->name('admin.store.edit');
+
+    Route::post('/store/post', 'StoreController@store')->name('admin.store.store');
+
+    Route::get('/store/show', 'StoreController@show')->name('admin.store.show');
+
+    Route::post('/store/show', 'StoreController@show')->name('admin.store.show');
+
+                            ///*Store admin routes*///
+                                /***************/
+                            ///*Shop admin routes*///
+    Route::get('/shop/index', 'ShopController@index')->name('admin.shop.index');
+
+    Route::post('/shop/post', 'ShopController@store')->name('admin.shop.store');
+
+    Route::get('/shop/edit{id}', 'ShopController@edit')->name('admin.shop.edit');
+
+    Route::get('/shop/show', 'ShopController@show')->name('admin.shop.show');
+    
+    Route::post('/shop/show', 'ShopController@show')->name('admin.shop.show');
+
+                            ///*Shop admin routes*///
+                                /***************/
+                        ///*Cashback admin routes*///
+    Route::get('/cashback/index/', 'CashbackController@index')->name('admin.cashback.index');
+
+    Route::get('/cashback/edit/{store}', 'CashbackController@edit')->name('admin.cashback.edit');
+
+    Route::post('/cashback/store/{store}', 'CashbackController@store')->name('admin.cashback.store');
+                            ///*Cashback admin routes*///
 });

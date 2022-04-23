@@ -15,20 +15,20 @@
 </header>
 
 <body>
-    <form action={{ route('cashback.store') }} method="POST" enctype="multipart/form-data">
+    <form action={{ route('admin.cashback.store') }} method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="{{ $store->id ?? '' }}">
         @csrf
 
         <nav class="manager">
             <ul>
 
-                <li><a href="{{ route ('store.index') }}">Cadastro de Lojas</a></li>
+                <li><a href="{{ route ('admin.store.index') }}">Cadastro de Lojas</a></li>
 
-                <li><a href="{{ route ('cashback.index') }}">Cadastros de Cashback</a></li>
+                <li><a href="{{route ('admin.shop.index')}}">Cadastros de Cashback</a></li>
 
-                <li><a href="{{ route ('list_store.index') }}">Lojas Cadastradas</a></li>
+                <li><a href="{{ route ('admin.store.show') }}">Lojas Cadastradas</a></li>
 
-                <li><a href="{{ route ('list_cashback.index') }}">Cashbacks Cadastrados</a></li>
+                <li><a href="{{ route ('admin.shop.show') }}">Cashbacks Cadastrados</a></li>
 
             </ul>
         </nav>
@@ -38,8 +38,8 @@
             <div class="right-login">
 
                 <div class="textfield">
-                    <input type="text" name="cashback" value="{{ $store->cashback ?? old('cashback') }}" placeholder="Loja">
-                    {{ $errors->has('cashback') ? $errors->first('cashback') : '' }}
+                    <input type="text" name="name" value="{{ $store->name ?? old('name') }}" placeholder="Loja">
+                    {{ $errors->has('name') ? $errors->first('name') : '' }}
                 </div>
 
                 <button type="submit" class="btn-login">Editar</button>

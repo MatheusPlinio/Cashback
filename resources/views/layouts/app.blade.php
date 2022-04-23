@@ -49,10 +49,10 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastro') }}</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ route('app.sobre') }}">Sobre</a>
+                            <a class="nav-link" href="{{ route('app.on.index') }}">Sobre</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ route('app.contato') }}">Contato</a>
+                            <a class="nav-link" href="{{ route('app.contact.index') }}">Contato</a>
                         </li>
                         @endif
                         @else

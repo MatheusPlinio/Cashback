@@ -3,117 +3,46 @@
 namespace App\Http\Controllers;
 
 use App\Cashback;
-use App\Loja;
+use App\Store;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class CashbackController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('admin.cashback');
+        $stores = Store::all();
+
+        return view('admin.record.cashback.index', ['stores' => $stores]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
+    public function edit(Store $store)
     {
-        //
+        $cashbacks = Cashback::all();
+
+        Return view ('admin.record.cashback.edit', ['store' => $store, 'cashbacks' => $cashbacks]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request, Store $store)
     {
-        if ($request->input('_token') != '' && $request->input('id') == ''); {
-            $regras =
-                [
-                    'name' => 'required',
-                ];
+        $regras =
+            [
+                'cashback' => 'exists:cashbacks,id',
+                'perc_cashback' => 'required'
+            ];
 
-            $feedback =
-                [
-                    'name' => 'O campo deve ser preechido',
-                ];
+        $feedback =
+            [
+                'cashback' => 'o E-commerce informado não existe',
+                'perc_cashback' => 'O campo :attribute deve possuir um valor válido'
+            ];
 
-            $request->validate($regras, $feedback);
+        $request->validate($regras, $feedback);
+        
+        //dd($store);
+            
+        $cashback = Cashback::find($request->get('cashback'));
+        $store->cashbacks()->attach($cashback, ['perc_cashback' => $request->get('perc_cashback')]);
 
-            $store = new Cashback();
-            $store->name = $request->input('name');
-            $store->logo = $request->file('logo')->store('logo', 'public');
-            $store->save();
-            return redirect()->route('cashback.index')->with('success', 'Cadastro realizado com sucesso');
-            if ($request->input('_token') != '' && $request->input('id') != '') {
-                $store = Cashback::find($request->input('id'));
-                $update = $store->update($request->all());
-
-                if ($update) {
-                    Session::flash('success', 'Edição realizada com sucesso');
-                } else {
-                    Session::flash('success', 'Edição com dados inválidos');
-                }
-                return redirect()->route('cashback.edit', [$request->input('id')]);
-            }
-            return view('cashback.index');
-        }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $store = Cashback::find($id);
-
-        return view('admin.Cashback_edit', ['store' => $store]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('admin.cashback.index', ['store' => $store->id])->with('success', 'Adicionado com sucesso');
     }
 }
