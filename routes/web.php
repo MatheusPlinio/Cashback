@@ -20,6 +20,7 @@ use App\Store;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/home', 'HomeController@index')->name('home.index');
 Route::get('/page/{id}', 'PageController@index')->name('app.page.page');
     
 

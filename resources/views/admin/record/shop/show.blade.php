@@ -1,18 +1,6 @@
 @extends('layouts.basic')
 
 @section('content-index')
-<header class="header">
-    <a href="{{ route('home.index') }}"><img src=""></a>
-    <nav>
-        <ul class="menu">
-            <li><a href="">Sobre</a></li>
-            <li><a href="">Contato</a></li>
-            <li><a href="">Todos os Cashback</a></li>
-            <li><a href="">Cadastro</a></li>
-            <li><a href="">Sair</a></li>
-        </ul>
-    </nav>
-</header>
 
 <body>
     <form action={{ route('admin.shop.show') }} method="post" enctype="multipart/form-data">
