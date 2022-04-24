@@ -35,7 +35,7 @@ Route::middleware('auth', 'isAdmin')->prefix('/admin')->group(function (){
     
                             ///*Store admin routes*///
 
-    Route::get('/store/index', 'Admin\StoreController@index')->name('admin.store.index');
+    Route::get('/store/index', 'StoreController@index')->name('admin.store.index');
 
     Route::get('/store/edit/{id}', 'StoreController@edit')->name('admin.store.edit');
 
@@ -44,6 +44,8 @@ Route::middleware('auth', 'isAdmin')->prefix('/admin')->group(function (){
     Route::get('/store/show', 'StoreController@show')->name('admin.store.show');
 
     Route::post('/store/show', 'StoreController@show')->name('admin.store.show');
+
+    Route::post('/store/destroy/{store}', 'StoreController@destroy')->name('admin.store.destroy');
 
                             ///*Store admin routes*///
                                 /***************/
@@ -57,6 +59,8 @@ Route::middleware('auth', 'isAdmin')->prefix('/admin')->group(function (){
     Route::get('/shop/show', 'ShopController@show')->name('admin.shop.show');
     
     Route::post('/shop/show', 'ShopController@show')->name('admin.shop.show');
+
+    Route::post('/shop/destroy/{store}', 'ShopController@destroy')->name('admin.shop.destroy');
 
                             ///*Shop admin routes*///
                                 /***************/

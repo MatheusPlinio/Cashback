@@ -89,27 +89,32 @@ img {
 
 .manager {
     display: flex;
-    list-style: none;
-    padding: 0;
-    background-color: #201b2c;
+    justify-content: space-between;
+    background-color: #3ac9a5;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .manager li {
-    display: inline;
+    margin-left: 10px;
 }
 
 .manager li a {
-    float: right;
     display: flex;
-    display: inline;
     flex-wrap: wrap;
-    padding: 1px 5px;
-    background-color: #00ff88d3;
-    border-radius: 8px;
-    margin: 3px;
-    color: #201b2c;
-    font-size: 30px;
+    padding: 10px;
+    background-color: #201b2c;
+    border-radius: 10px;
+    box-shadow: 0.2em 0.2em 0.2em black;
+    color: white;
+    margin: 2px;
 }
+
+.manager li a:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);}
 
 .flexbox {
     display: flex;

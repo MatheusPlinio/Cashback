@@ -114,8 +114,10 @@ class ShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cashback $store)
     {
-        //
+        $store->delete();
+
+        return redirect()->route('admin.shop.show');
     }
 }

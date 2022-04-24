@@ -8,29 +8,37 @@
     <link rel="stylesheet" href="{{ asset ('css/app.css')}}">
     <title>O Melhor Cashback</title>
 
-
-
 </head>
 
-<header class="header">
-    <a href="{{route('home.index')}}"><img src="{{ Storage::url('Images_statics/logo.png') }}"></a>
-    <nav>
-        <ul class="menu">
+<body>
+    <header class="header">
+        <nav class="manager">
+
             @if(auth()->check() && auth()->user()->Admin)
-            <li><a href="{{ route('admin.store.index') }}">Admin</a></li>
+
+            <li><a href="{{ route ('admin.shop.show') }}">Cashbacks</a></li>
+
+            <li><a href="{{ route ('admin.store.show') }}">Lojas</a></li>
+
             @endif
-            <li><a href="{{ route('app.on.index') }}">Sobre</a></li>
-            <li><a href="{{ route('app.contact.index') }}">Contato</a></li>
             @guest
             <li><a href="{{ route('login') }}">Login</a></li>
+
             <li><a href="{{ route('register') }}">Cadastro</a></li>
             @endguest
-        </ul>
-    </nav>
-</header>
+            
+            <li><a href="{{ route('app.on.index') }}">Sobre</a></li>
 
-<body>
+            <li><a href="{{ route('app.contact.index') }}">Contato</a></li>
+
+
+
+            </ul>
+        </nav>
+    </header>
+
     @yield('content-index')
+
 </body>
 
 </html>

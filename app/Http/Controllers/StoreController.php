@@ -121,8 +121,10 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Store $store)
     {
-        //
+        $store->delete();
+
+        return redirect()->route('admin.store.show');
     }
 }

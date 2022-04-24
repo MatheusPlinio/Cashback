@@ -25,9 +25,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container-1">
-
-                <a href="{{route('home.index')}}"><img src="image/logo.png"></a>
+            <div class="container-1">                
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
