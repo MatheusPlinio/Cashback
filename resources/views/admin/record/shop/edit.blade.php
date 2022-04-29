@@ -3,7 +3,7 @@
 @section('content-index')
 
 <body>
-    <form action={{ route('admin.cashback.store') }} method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.cashback.store') }} "method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="{{ $store->id ?? '' }}">
         @csrf
 

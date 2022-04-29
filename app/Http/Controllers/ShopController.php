@@ -54,7 +54,7 @@ class ShopController extends Controller
             $store->name = $request->input('name');
             $store->logo = $request->file('logo')->store('logo', 'public');
             $store->save();
-            return redirect()->route('cashback.index')->with('success', 'Cadastro realizado com sucesso');
+            return redirect()->route('admin.shop.show')->with('success', 'Cadastro realizado com sucesso');
             if ($request->input('_token') != '' && $request->input('id') != '') {
                 $store = Cashback::find($request->input('id'));
                 $update = $store->update($request->all());

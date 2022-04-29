@@ -3,7 +3,7 @@
 @section('content-index')
 
 <body>
-    <form action={{ route('admin.shop.show') }} method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.shop.show') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="main-login">
@@ -39,6 +39,7 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        <li><a href="{{ route('admin.shop.index') }}">Adicionar Loja</a></li>
                     </table>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 @extends('layouts.basic')
 
 @section('content-index')
+
 <body>
     <div class="store_container">
         <div class="store_cash">
@@ -21,8 +22,5 @@
     @if(auth()->check() && auth()->user()->Admin)
     <li><a href="{{ route('admin.cashback.index', ['store' => $store]) }}">Adicionar Cashback</a></li>
     @endif
-
-
-
 </body>
 @endsection

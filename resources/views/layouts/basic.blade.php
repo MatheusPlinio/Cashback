@@ -12,6 +12,11 @@
 
 <body>
     <header class="header">
+
+        <a href="{{route('home.index')}}">
+            <img src="{{Storage::url('Images_statics/money.png')}}">
+        </a>
+
         <nav class="manager">
 
             @if(auth()->check() && auth()->user()->Admin)
@@ -26,13 +31,18 @@
 
             <li><a href="{{ route('register') }}">Cadastro</a></li>
             @endguest
-            
+
             <li><a href="{{ route('app.on.index') }}">Sobre</a></li>
 
             <li><a href="{{ route('app.contact.index') }}">Contato</a></li>
-
-
-
+            @auth
+            <li>           
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit">Sair</button>
+            </form>
+            </li>
+            @endauth
             </ul>
         </nav>
     </header>

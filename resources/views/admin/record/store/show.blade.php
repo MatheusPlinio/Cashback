@@ -37,10 +37,9 @@
                                     </form>
                                 </td>
                                 <td><a href="{{ route('admin.store.edit', $store->id) }}">Editar</a></td>
-
                             </tr>
-                            <li><a href="{{ route('admin.store.index') }}">Adicionar Loja</a></li>
                             @endforeach
+                            <li><a href="{{ route('admin.store.index') }}">Adicionar Loja</a></li>
                         </tbody>
                     </table>
                 </div>

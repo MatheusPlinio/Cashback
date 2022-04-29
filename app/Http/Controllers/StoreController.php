@@ -73,7 +73,7 @@ class StoreController extends Controller
             }
             return redirect()->route('admin.store.edit', [$request->input('id')]);
         }
-        return redirect()->route('store.index')->with('success', 'Cadastro feito com sucesso');
+        return redirect()->route('admin.store.show')->with('success', 'Cadastro feito com sucesso');
     }
 
     /**

@@ -19,7 +19,7 @@ class CashbackController extends Controller
     {
         $cashbacks = Cashback::all();
 
-        Return view ('admin.record.cashback.edit', ['store' => $store, 'cashbacks' => $cashbacks]);
+        return view ('admin.record.cashback.edit', ['store' => $store, 'cashbacks' => $cashbacks]);
     }
 
     public function store(Request $request, Store $store)

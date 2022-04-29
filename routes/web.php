@@ -71,4 +71,10 @@ Route::middleware('auth', 'isAdmin')->prefix('/admin')->group(function (){
 
     Route::post('/cashback/store/{store}', 'CashbackController@store')->name('admin.cashback.store');
                             ///*Cashback admin routes*///
+                                ///*Manager Routes*///
+    Route::get('/manager/index/', 'AdminController@index')->name('manager.index');
+
+    Route::get('/manager/edit{id}', 'AdminController@edit')->name('manager.edit');
+
+    Route::post('/manage/update/{id}', 'AdminController@update')->name('manager.update');
 });

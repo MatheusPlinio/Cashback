@@ -18,7 +18,7 @@ p {
 }
 
 body {
-    background-color: #201b2c;
+    background-color: rgb(211, 212, 218);
 }
 
 
@@ -51,6 +51,8 @@ img {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow:  0.2em 0.2em 0.2em black;
 }
 
 .header>a img {
@@ -77,7 +79,7 @@ img {
     background-color: #201b2c;
     border-radius: 10px;
     box-shadow: 0.2em 0.2em 0.2em black;
-    color: white;
+    color: black;
     margin: 2px;
 }
 
@@ -94,6 +96,28 @@ img {
     align-items: center;
     padding: 20px;
     border-radius: 10px;
+    margin-left: 5px;
+}
+
+.manager button:hover{
+    
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.manager button {
+    background: #0066A2;
+    color: white;
+    border-radius: 15px;
+    border-style: hidden;
+    border-color: #0066A2;
+    height: 40px;
+    width: 85px;
+    font: bold 15px arial, sans-serif;
+    text-shadow: none;
+    box-shadow: #0c0c13 0.2em 0.2em 0.2em;
+    cursor: pointer;
 }
 
 .manager li {
@@ -127,7 +151,8 @@ img {
 }
 
 .flexbox>div {
-    flex: 1 1 200px;
+    
+    flex:200px;
     margin: 10px 10px;
     border: 5px;
     border-color: rgb(167, 160, 160);
@@ -220,6 +245,51 @@ img {
     box-shadow: 0px 10px 40px #00000056;
     outline: none;
     box-sizing: border-box;
+}
+
+.toggle
+{
+    display: none;
+}
+
+.toggle + label 
+{
+    width: 32px;
+    height: 20px;
+    background: lightgray;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    padding: 2px;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.toggle + label:before 
+{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    display: block;
+    border-radius: 50%;
+    right: unset;
+    left: 2px;
+    top: 2px;
+    transition: 200ms;
+}
+
+.toggle:checked + label
+{
+    background: blue;
+}
+
+.toggle:checked + label:before
+{
+    content: '';
+    left: calc(100% - 22px);
+    box-shadow: 0 4px 4px rgb(0 0 0/10%);
 }
 
 .textfield>label {
@@ -338,11 +408,6 @@ td {
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-}
-
-body
-{
-    background-color: whitesmoke;
 }
 
 .container-1>a img
