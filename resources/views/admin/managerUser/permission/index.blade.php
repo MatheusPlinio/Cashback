@@ -15,19 +15,18 @@
                     </thead>
                     <tbody>
                         @foreach($user as $user)
-                        <form action="{{route('manager.update', $user->id)}}" method="post">
-                            @csrf
-                            <tr>
-                                <td>{{$user->name}}</td>
-                                <td>
-                                    <input name="Admin" type="checkbox" id="{{$user->id}}" class="toggle" value="{{$user->id}}"{{$user->Admin == 1 ? "checked='checked'" : ""}}>
+                        <tr>
+                            <td>{{$user->name}}</td>
+                            <td>
+                                <form action="{{route('manager.update', $user->id)}}" method="post">
+                                    @csrf
+                                    <input name="Admin" type="checkbox" id="{{$user->id}}" class="toggle" value="{{$user->id}}" {{$user->Admin == 1 ? "checked='checked'" : ""}}>
                                     <label for="{{$user->id}}"></label>
-                                    
-                                </td>
-                            </tr>
-                            @endforeach
-                            <button type="submit"> Atualizar </button>
-                        </form>
+                                    <button type="submit" class="btn-login"> confirm </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

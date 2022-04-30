@@ -18,7 +18,7 @@
 
                 <div class="textfield">
                     <input type="text" name="link" value="{{ $stores->cashback ?? old('cashback') }}" placeholder="cashback">
-                    {{ $errors->has('link') ? $errors->first('cashback') : '' }}
+                    {{ $errors->has('cashback') ? $errors->first('cashback') : '' }}
                 </div>
 
                 <button type="submit" class="btn-login">Cadastrar</button>

@@ -21,7 +21,7 @@
 
             @if(auth()->check() && auth()->user()->Admin)
 
-            <li><a href="{{ route ('admin.shop.show') }}">Cashbacks</a></li>
+            <li><a href="{{ route ('admin.shop.show') }}">Programas</a></li>
 
             <li><a href="{{ route ('admin.store.show') }}">Lojas</a></li>
 

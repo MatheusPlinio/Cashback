@@ -27,6 +27,7 @@ Route::get('/page/{id}', 'PageController@index')->name('app.page.page');
 Route::middleware('auth')->prefix('/app')->group(function () {
     Route::get('/contato', 'ContactController@index')->name('app.contact.index');
     Route::get('/sobre', 'OnController@index')->name('app.on.index');
+    Route::get('/redirect{id}', 'PageController@redirect')->name('app.redirect');
 });
 
                                 //Routes of admin//

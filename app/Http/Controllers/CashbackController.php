@@ -19,7 +19,7 @@ class CashbackController extends Controller
     {
         $cashbacks = Cashback::all();
 
-        return view ('admin.record.cashback.edit', ['store' => $store, 'cashbacks' => $cashbacks]);
+        return view('admin.record.cashback.edit', ['store' => $store, 'cashbacks' => $cashbacks]);
     }
 
     public function store(Request $request, Store $store)
@@ -27,21 +27,29 @@ class CashbackController extends Controller
         $regras =
             [
                 'cashback' => 'exists:cashbacks,id',
-                'perc_cashback' => 'required'
+                'perc_cashback' => 'required',
+                'link' => 'required|min:7|max:255'
             ];
 
         $feedback =
             [
                 'cashback' => 'o E-commerce informado não existe',
-                'perc_cashback' => 'O campo :attribute deve possuir um valor válido'
+                'perc_cashback' => 'O campo :attribute deve possuir um valor válido',
+                'link' => 'Deve conter um minimo de 7 caracteres'
             ];
 
         $request->validate($regras, $feedback);
-        
+
         //dd($store);
-            
+
         $cashback = Cashback::find($request->get('cashback'));
-        $store->cashbacks()->attach($cashback, ['perc_cashback' => $request->get('perc_cashback')]);
+        $store->cashbacks()->attach(
+            $cashback,
+            [
+                'perc_cashback' => $request->get('perc_cashback'),
+                'link' => $request->get('link'),
+            ]
+        );
 
         return redirect()->route('admin.cashback.index', ['store' => $store->id])->with('success', 'Adicionado com sucesso');
     }

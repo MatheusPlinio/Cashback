@@ -22,5 +22,17 @@
     @if(auth()->check() && auth()->user()->Admin)
     <li><a href="{{ route('admin.cashback.index', ['store' => $store]) }}">Adicionar Cashback</a></li>
     @endif
+
+
+    <section class="flexbox-redirect">
+        @foreach ($store->cashbacks as $store)
+        <div>
+            <a href="{{$store->pivot->link}}">
+                <img src="{{ Storage::url($store->logo) }}">
+                <p>{{number_format($store->pivot->perc_cashback, 2, ',', '')}}%</p>
+            </a>
+        </div>
+        @endforeach
+    </section>
 </body>
 @endsection

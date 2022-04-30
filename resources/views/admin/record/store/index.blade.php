@@ -26,7 +26,7 @@
                     {{ $errors->has('image') ? $errors->first('image') : '' }}
                 </div>
 
-                <button type="submit" class="btn-login">Cadastrar</button>
+                <button type="submit" class="btn-admin">Cadastrar</button>
 
                 @if (session('success'))
                 <p class="message">{{ session('success') }}</p>

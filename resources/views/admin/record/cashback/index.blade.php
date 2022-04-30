@@ -19,7 +19,7 @@
                         @foreach ($stores as $store)
                         <tr>
                             <td>{{ $store->name}}</td>
-                            <td><a href="{{ route('admin.cashback.edit', ['store' => $store->id]) }}">Editar</a></td>
+                            <td><a href="{{ route('admin.cashback.edit', ['store' => $store->id]) }}">Adicionar</a></td>
                         </tr>
                         @endforeach
                     </tbody>
