@@ -13,11 +13,4 @@ class PageController extends Controller
 
         return view('app.page.page', ['store' => $store]);
     }
-
-    public function redirect($id)
-    {
-        $store = Store::find($id);
-
-        return view('app.page.redirect', ['store' => $store]);
-    }
 }

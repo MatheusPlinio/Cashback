@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="{{ asset ('css/app.css')}}">
     <title>O Melhor Cashback</title>
 
-</head>
-
-<body>
     <header class="header">
 
         <a href="{{route('home.index')}}">
@@ -36,19 +33,28 @@
 
             <li><a href="{{ route('app.contact.index') }}">Contato</a></li>
             @auth
-            <li>           
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit">Sair</button>
-            </form>
+            <li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit">Sair</button>
+                </form>
             </li>
             @endauth
             </ul>
         </nav>
     </header>
+</head>
+
+<body>
 
     @yield('content-index')
 
 </body>
+
+<footer class="footer">
+
+<p>Copyright - {{ date("Y") }}</p>
+
+</footer>
 
 </html>

@@ -45,13 +45,17 @@ img {
     position: relative;
 }
 
-.header {
+header {
+    margin-bottom: 20px;
+    top: 0;
+    width: 1329px;
+    height: none;
     background-color: #3ac9a5;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow:  0.2em 0.2em 0.2em black;
 }
@@ -602,4 +606,21 @@ td {
     margin: 5px;
     text-shadow: none;
     cursor: pointer;
+}
+
+/**footer**/
+
+footer {
+    margin-top: 20px;
+    display: flex;
+    padding: 25px;
+    width: 1300px;
+    height: none;
+    background-color: #3ac9a5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow:  0.2em 0.2em 0.2em black;
 }

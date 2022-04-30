@@ -2,8 +2,6 @@
 
 @section('content-index')
 
-<h1>Destaques</h1>
-
 <section class="flexbox">
     @foreach ($stores as $store)
     <div>
