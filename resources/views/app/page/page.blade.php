@@ -20,11 +20,14 @@
         </div>
     </div>
     @if(auth()->check() && auth()->user()->Admin)
-    <li><a href="{{ route('admin.cashback.index', ['store' => $store]) }}">Adicionar Cashback</a></li>
+    <div class="btn-add-cashback">
+        <li><a href="{{ route('admin.cashback.index', ['store' => $store]) }}">Adicionar Cashback</a></li>
+    </div>
     @endif
 
+    <h2>Cashbacks</h2>
 
-    <section class="flexbox-redirect">
+    <section class="flexbox">
         @foreach ($store->cashbacks as $store)
         <div>
             <a href="{{$store->pivot->link}}">

@@ -3,7 +3,7 @@
 @section('content-index')
 
 <body>
-    <form action={{ route('admin.store.show') }} method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.store.show') }}"method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="main-login">

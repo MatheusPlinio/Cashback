@@ -28,8 +28,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $stores = Store::all();
-        return view('home.index', ['stores' => $stores]);
+        $search = request('search');
+
+        if($search) {
+
+            $stores = Store::where([
+                ['name', 'like', '%'.$search.'%']
+            ])->get();
+
+        } else {
+            $stores = Store::all();
+        }
+
+        return view('home.index', ['stores' => $stores, 'search' => $search]);
     }
 }
-
