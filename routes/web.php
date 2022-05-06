@@ -26,7 +26,8 @@ Route::get('/page/{id}', 'PageController@index')->name('app.page.page');
 
 Route::middleware('auth')->prefix('/app')->group(function () {
     Route::get('/contato', 'ContactController@index')->name('app.contact.index');
-    Route::get('/sobre', 'OnController@index')->name('app.on.index');
+    Route::get('/info', 'InfoController@index')->name('app.info.index');
+    Route::get('/profile/show', 'ProfileController@show')->name('app.profile.show');
 });
 
                                 //Routes of admin//

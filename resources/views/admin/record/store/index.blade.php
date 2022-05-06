@@ -2,38 +2,31 @@
 
 @section('content-index')
 
-<body>
-    <form action="{{ route ('admin.store.store') }}" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="{{ $store->id ?? '' }}">
-        @csrf
 
-        <div class="main-login">
+<form action="{{ route ('admin.store.store') }}" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{ $store->id ?? '' }}">
+    @csrf
 
-            <div class="right-login">
+        <div class="textfield">
+            <input type="text" name="name" value="{{ old('name') }}" placeholder="Loja">
+            {{ $errors->has('name') ? $errors->first('name') : '' }}
+        
 
-                <div class="textfield">
-                    <input type="text" name="name" value="{{ old('name') }}" placeholder="Loja">
-                    {{ $errors->has('name') ? $errors->first('name') : '' }}
-                </div>
+        
+            <input type="text" name="link" value="{{ old('link') }}" placeholder="Link">
+            {{ $errors->has('link') ? $errors->first('link') : '' }}
+        
 
-                <div class="textfield">
-                    <input type="text" name="link" value="{{ old('link') }}" placeholder="Link">
-                    {{ $errors->has('link') ? $errors->first('link') : '' }}
-                </div>
-
-                <div class="textfield">
-                    <input type="file" name="image" value="{{ old('image') }}" placeholder="Arquivo">
-                    {{ $errors->has('image') ? $errors->first('image') : '' }}
-                </div>
-
-                <button type="submit" class="btn-admin">Cadastrar</button>
-
-                @if (session('success'))
-                <p class="message">{{ session('success') }}</p>
-                @endif
-            </div>
+        
+            <input type="file" name="image" value="{{ old('image') }}" placeholder="Arquivo">
+            {{ $errors->has('image') ? $errors->first('image') : '' }}
         </div>
-        </div>
-    </form>
-</body>
+
+        <button type="submit" class="btn-admin">Cadastrar</button>
+
+        @if (session('success'))
+        <p class="message">{{ session('success') }}</p>
+        @endif
+
+</form>
 @endsection

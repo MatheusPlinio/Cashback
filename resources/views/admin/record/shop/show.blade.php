@@ -10,7 +10,7 @@
 
             <div class="right-login">
 
-                <div class="textfield">
+                <div class="search">
                     <input type="text" name="name" value="{{ old('name') }}" placeholder="cashback">
                     {{ $errors->has('name') ? $errors->first('name') : '' }}
                 </div>
@@ -39,7 +39,7 @@
                             </tr>
                             @endforeach
                         </tbody>
-                        <li><a href="{{ route('admin.shop.index') }}">Adicionar Loja</a></li>
+                        <a href="{{ route('admin.shop.index') }}">Adicionar Loja</a>
                     </table>
                 </div>
             </div>

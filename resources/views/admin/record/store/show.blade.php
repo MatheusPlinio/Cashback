@@ -3,19 +3,19 @@
 @section('content-index')
 
 <body>
-    <form action="{{ route('admin.store.show') }}"method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.store.show') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="main-login">
 
             <div class="right-login">
 
-                <div class="textfield">
+                <div class="search">
                     <input type="text" name="name" value="{{ old('name') }}" placeholder="Loja">
                     {{ $errors->has('name') ? $errors->first('name') : '' }}
                 </div>
 
-                <button type="submit" class="btn-list">pesquisar</button>
+                <button type="submit">pesquisar</button>
 
                 <div class="list">
                     <table>
@@ -39,7 +39,7 @@
                                 <td><a href="{{ route('admin.store.edit', $store->id) }}">Editar</a></td>
                             </tr>
                             @endforeach
-                            <li><a href="{{ route('admin.store.index') }}">Adicionar Loja</a></li>
+                            <a href="{{ route('admin.store.index') }}">Adicionar Loja</a>
                         </tbody>
                     </table>
                 </div>

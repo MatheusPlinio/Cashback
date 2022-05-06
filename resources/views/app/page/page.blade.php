@@ -5,8 +5,7 @@
 <body>
     <div class="store_container">
         <div class="store_cash">
-            <a href="{{ url($store->link) }}"> <img src="{{ Storage::url($store->image) }}">{{ $store->name }}
-            </a>
+            <p><img src="{{ Storage::url($store->image) }}">{{ $store->name }}</p>
         </div>
         <div class="container_info">
             <dt>1. Escolha a Oferta</dt>
@@ -21,7 +20,7 @@
     </div>
     @if(auth()->check() && auth()->user()->Admin)
     <div class="btn-add-cashback">
-        <li><a href="{{ route('admin.cashback.index', ['store' => $store]) }}">Adicionar Cashback</a></li>
+        <a href="{{ route('admin.cashback.index', ['store' => $store]) }}">Adicionar Cashback</a>
     </div>
     @endif
 

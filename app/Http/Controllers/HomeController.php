@@ -31,7 +31,7 @@ class HomeController extends Controller
         $search = request('search');
 
         if($search) {
-
+            
             $stores = Store::where([
                 ['name', 'like', '%'.$search.'%']
             ])->get();
