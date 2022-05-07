@@ -11,15 +11,17 @@
     <header>
         <nav>
             <ul>
-
-            
-
                 <li> <a href="/"> <img src="{{Storage::url('Images_statics/money.png')}}"></a>
-
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a href="#">+info</a></li>
+                            @guest
+                            <li class="home"><a href="{{ route('login') }}">Login</a></li>
+                            <li class="home"><a href="{{ route('register') }}">Cadastro</a></li>
+                            @endguest
+
                             @auth
+                            <li><a href="#">+info</a></li>
+
                             <li> <a href="{{ route('app.contact.index') }}">Contato</a> </li>
 
                             @if(auth()->check() && auth()->user()->Admin)
@@ -32,15 +34,13 @@
                                 @csrf
                                 <button type="submit">Sair</button>
                             </form>
+                            @endauth
                     </div>
                 </li>
-                @endauth
-            </ul>
-            @guest
-            <li class="home"><a href="{{ route('login') }}">Login</a></li>
 
-            <li class="home"><a href="{{ route('register') }}">Cadastro</a></li>
-            @endguest
+
+            </ul>
+
 
             </ul>
         </nav>

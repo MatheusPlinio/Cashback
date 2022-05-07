@@ -2,7 +2,7 @@
 
 @section('content-index')
 
-<body>
+
     <thead>
         <tr>
             <th>Store</th>
@@ -19,5 +19,5 @@
 
     @component('admin.record.cashback._components.form_cashback_edit', ['cashbacks' => $cashbacks, 'store' => $store])
     @endcomponent
-</body>
+
 @endsection
