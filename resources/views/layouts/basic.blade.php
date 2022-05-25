@@ -7,11 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="{{ asset ('css/app.css')}}">
     <title>O Melhor Cashback</title>
+</head>
 
+<body>
     <header>
         <nav>
             <ul>
-                <li> <a href="/"> <img src="{{Storage::url('Images_statics/money.png')}}"></a>
+                <li><a href="/"> <img src="{{Storage::url('icons/money.svg')}}"></a>
                     <div class="sub-menu-1">
                         <ul>
                             @guest
@@ -37,18 +39,10 @@
                             @endauth
                     </div>
                 </li>
-
-
             </ul>
-
-
             </ul>
         </nav>
     </header>
-</head>
-
-<body>
-
     @yield('content-index')
 
 </body>
