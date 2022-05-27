@@ -2,9 +2,12 @@
 
 @section('content-index')
 
-<body>
+<div class="container-page">
     <div class="store_container">
         <div class="store_cash">
+            <p><img src="{{ Storage::url($store->image) }}">{{ $store->name }}</p>
+        </div>
+        <div class="store-mobile">
             <p><img src="{{ Storage::url($store->image) }}">{{ $store->name }}</p>
         </div>
         <div class="container_info">
@@ -26,7 +29,7 @@
 
     <h2>Cashbacks</h2>
 
-    <section class="flexbox">
+    <div class="flexbox">
         @foreach ($store->cashbacks as $store)
         <div>
             <a href="{{$store->pivot->link}}">
@@ -35,6 +38,6 @@
             </a>
         </div>
         @endforeach
-    </section>
-</body>
+    </div>
+</div>
 @endsection

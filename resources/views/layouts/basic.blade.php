@@ -11,9 +11,16 @@
 
 <body>
     <header>
-        <nav>
+        <nav class="nav">
             <ul>
-                <li><a href="/"> <img src="{{Storage::url('icons/money.svg')}}"></a>
+                <div class="title">
+                    <h1>Melhor Cashback</h1>
+                </div>
+                <li class="home">
+                    <a href="/"><img src="{{Storage::url('image/home.svg')}}" alt="home"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="{{Storage::url('image/money.svg')}}" alt="money"></a>
                     <div class="sub-menu-1">
                         <ul>
                             @guest
