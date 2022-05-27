@@ -37,6 +37,8 @@
                             <li><a href="{{ route ('admin.shop.show') }}">Programas</a></li>
 
                             <li><a href="{{ route ('admin.store.show') }}">Lojas</a></li>
+
+                            <li><a href="{{ route ('manager.index') }}">Usuários</a></li>
                             @endif
 
                             <form method="POST" action="{{ route('logout') }}">
