@@ -46,7 +46,7 @@ Route::middleware('auth', 'isAdmin')->prefix('/admin')->group(function (){
 
     Route::post('/store/show', 'StoreController@show')->name('admin.store.show');
 
-    Route::post('/store/destroy/{store}', 'StoreController@destroy')->name('admin.store.destroy');
+    Route::post('/store/destroy/{id}', 'StoreController@destroy')->name('admin.store.destroy');
 
                             ///*Store admin routes*///
                                 /***************/
@@ -61,7 +61,7 @@ Route::middleware('auth', 'isAdmin')->prefix('/admin')->group(function (){
     
     Route::post('/shop/show', 'ShopController@show')->name('admin.shop.show');
 
-    Route::post('/shop/destroy/{store}', 'ShopController@destroy')->name('admin.shop.destroy');
+    Route::post('/shop/destroy/{id}', 'ShopController@destroy')->name('admin.shop.destroy');
 
                             ///*Shop admin routes*///
                                 /***************/

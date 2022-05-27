@@ -9,32 +9,16 @@ use Illuminate\Support\Facades\Session;
 
 class StoreController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return view('admin.record.store.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Store $store)
     {
-        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         if ($request->input('_token') != '' && $request->input('id') == '') {
@@ -76,26 +60,13 @@ class StoreController extends Controller
         return redirect()->route('admin.store.show')->with('success', 'Cadastro feito com sucesso');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Request $request)
-    {
-        {
+    { {
             $stores = Store::where('name', 'like', '%' . $request->input('name') . '%')->paginate(10);
             return view('admin.record.store.show', ['stores' => $stores]);
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $store = Store::find($id);
@@ -103,28 +74,17 @@ class StoreController extends Controller
         return view('admin.record.store.edit', ['store' => $store]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Store $store)
+    public function destroy($id)
     {
+        $store = store::find($id);
+
         $store->delete();
 
-        return redirect()->route('admin.store.show');
+        return redirect()->route('admin.store.show', ['store' => $store]);
     }
 }
