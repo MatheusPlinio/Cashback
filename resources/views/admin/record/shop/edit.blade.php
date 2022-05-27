@@ -1,9 +1,8 @@
 @extends('layouts.basic')
 
 @section('content-index')
-
-<body>
-    <form action="{{ route('admin.cashback.store') }} "method="POST" enctype="multipart/form-data">
+<div class="container">
+    <form action="{{ route('admin.shop.store') }} " method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="{{ $store->id ?? '' }}">
         @csrf
 
@@ -23,7 +22,6 @@
                 @endif
             </div>
         </div>
-        </div>
-    </form>
-</body>
+</div>
+</form>
 @endsection

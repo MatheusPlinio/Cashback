@@ -114,8 +114,9 @@ class ShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cashback $store)
-    {
+    public function destroy($id)
+    {   
+        $store = Cashback::find($id);
         $store->delete();
 
         return redirect()->route('admin.shop.show');
