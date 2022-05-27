@@ -43,7 +43,7 @@
 
     h1 {
         text-align: center;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-family: 'Tiro Devanagari Sanskrit', serif;
         font-size: 50px;
         color: #3ac9a5;
         text-shadow: 0.2em 0.2em 0.2em black;
@@ -355,7 +355,7 @@
     }
 
     .container {
-        display: flex;
+        display: grid;
         justify-content: center;
     }
 
