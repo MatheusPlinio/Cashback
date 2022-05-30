@@ -25,6 +25,6 @@
             </div>
             @endforeach
         </div>
+    </form>
 </div>
-</form>
 @endsection
