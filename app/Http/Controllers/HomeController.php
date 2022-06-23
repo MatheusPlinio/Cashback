@@ -7,6 +7,7 @@ use App\Loja;
 use App\Store;
 use App\User;
 use Illuminate\Auth\RequestGuard;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,16 +31,21 @@ class HomeController extends Controller
     {
         $search = request('search');
 
-        if($search) {
-            
-            $stores = Store::where([
-                ['name', 'like', '%'.$search.'%']
-            ])->get();
+        if ($search) {
 
+            $stores = Store::where([
+                ['name', 'like', '%' . $search . '%']
+            ])->get();
         } else {
             $stores = Store::all();
         }
 
-        return view('home.index', ['stores' => $stores, 'search' => $search]);
+        return view(
+            'home.index',
+            [
+                'stores' => $stores,
+                'search' => $search,
+                ]
+        );
     }
 }

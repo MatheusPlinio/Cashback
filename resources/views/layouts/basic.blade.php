@@ -18,7 +18,7 @@
                     <h1>Melhor Cashback</h1>
                 </div>
                 <li class="home">
-                    <a href="/"><img src="{{Storage::url('image/home.svg')}}" alt="home"></a>
+                    <a href="/"><img src="{{Storage::url('LogoMelhorCash_adobe_express.svg')}}" alt="home"></a>
                 </li>
                 <li>
                     <a href="#"><img src="{{Storage::url('image/money.svg')}}" alt="money"></a>
